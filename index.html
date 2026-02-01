@@ -3,106 +3,205 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Thrusting Gamer | Official</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<title>Thrusting Gamer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hidden}
 
-/* INTRO SPLASH */
-#intro{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;animation:fadeOut 1s ease forwards;animation-delay:3s}
-#intro img{width:180px;animation:zoom 3s ease}
-@keyframes zoom{0%{transform:scale(.2);opacity:0}50%{opacity:1}100%{transform:scale(1)}}
-@keyframes fadeOut{to{opacity:0;pointer-events:none}}
+/* BASE */
+body{
+  font-family:'Inter',sans-serif;
+  background:#0b0d12;
+  color:#eaeaf0;
+  min-height:100vh;
+}
 
-/* RGB BORDER */
-.rgb{padding:3px;border-radius:24px;background:linear-gradient(90deg,red,cyan,magenta,red);background-size:300% 300%;animation:rgb 6s infinite}
-@keyframes rgb{0%{background-position:0%}100%{background-position:300%}}
+/* FULLSCREEN LAYOUT */
+.wrapper{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
 
-.main{background:#0b0b18;border-radius:22px;max-width:460px;margin:80px auto 40px;overflow:hidden}
+.container{
+  width:100%;
+  max-width:1200px;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+}
 
-header{text-align:center;padding:30px}
-header img{width:140px;height:140px;object-fit:contain;background:#000;padding:10px;border-radius:50%;box-shadow:0 0 40px red}
-header h1{margin-top:15px;font-size:30px}
-.tag{color:#aaa;font-size:14px;margin-top:6px}
+/* LEFT HERO */
+.hero{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 
-.section{padding:18px;margin:15px;background:#12122a;border-radius:16px}
-.section h2{color:#ff4d4d;font-size:18px;margin-bottom:12px}
+.logo{
+  width:120px;
+  height:120px;
+  border-radius:24px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 60px rgba(255,70,70,.6);
+}
 
-button{width:100%;padding:12px;border:none;border-radius:12px;background:linear-gradient(135deg,#5865F2,#9b5cff);color:#fff;font-size:15px;margin-bottom:10px;cursor:pointer;transition:.2s}
-button:hover{transform:scale(1.05)}
+.logo img{
+  width:90%;
+  height:90%;
+  object-fit:contain;
+}
 
-.specs li{list-style:none;line-height:1.8;font-size:14px}
+.hero h1{
+  font-size:56px;
+  font-weight:700;
+  margin:30px 0 10px;
+}
 
-footer{text-align:center;font-size:12px;color:#777;padding:20px}
+.hero p{
+  font-size:18px;
+  color:#b7b9c5;
+  max-width:520px;
+}
 
-/* MUSIC */
-.music{position:fixed;bottom:20px;right:20px;background:red;color:#fff;border:none;border-radius:50px;padding:12px 15px;cursor:pointer}
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:16px;
+  margin-top:35px;
+}
 
-/* FPS COUNTER */
-.fps{position:fixed;top:15px;left:15px;color:#0f0;font-size:14px}
+.actions a{
+  text-decoration:none;
+  padding:14px 26px;
+  border-radius:12px;
+  font-weight:600;
+  transition:.2s;
+}
 
-iframe{border:none;border-radius:12px;width:100%}
+.primary{
+  background:#ff3b3b;
+  color:#fff;
+}
+
+.primary:hover{background:#ff5a5a}
+
+.secondary{
+  border:1px solid #2a2d3a;
+  color:#eaeaf0;
+}
+
+.secondary:hover{background:#1a1d29}
+
+/* RIGHT PANEL */
+.panel{
+  background:#111421;
+  border-radius:24px;
+  padding:35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.card{
+  background:#0c0f1a;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  font-size:16px;
+  color:#ff3b3b;
+  margin-bottom:12px;
+}
+
+.links a{
+  display:block;
+  text-decoration:none;
+  color:#eaeaf0;
+  padding:12px 14px;
+  border-radius:10px;
+  margin-bottom:8px;
+  background:#14182a;
+  transition:.2s;
+}
+
+.links a:hover{background:#1c2140}
+
+.specs{
+  font-size:14px;
+  line-height:1.8;
+  color:#cfd1dd;
+}
+
+footer{
+  text-align:center;
+  font-size:12px;
+  color:#777;
+  margin-top:30px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .container{grid-template-columns:1fr}
+  .hero h1{font-size:40px}
+  .wrapper{padding:25px}
+}
 </style>
 </head>
 <body>
 
-<!-- INTRO -->
-<div id="intro"><img src="channels4_profile.jpg"></div>
+<div class="wrapper">
+  <div class="container">
 
-<audio id="bgm" loop><source src="music.mp3" type="audio/mpeg"></audio>
-<button class="music" onclick="toggleMusic()">🎵 Music</button>
-<div class="fps" id="fps">FPS: --</div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="logo">
+        <img src="channels4_profile.jpg" alt="Thrusting Gamer">
+      </div>
+      <h1>Thrusting Gamer</h1>
+      <p>Competitive gamer & content creator. Clean builds, high FPS, zero noise — just performance.</p>
 
-<div class="rgb">
-<div class="main">
+      <div class="actions">
+        <a href="https://instagram.com" class="primary">Instagram</a>
+        <a href="https://youtube.com" class="secondary">YouTube</a>
+      </div>
+    </div>
 
-<header>
-<img src="channels4_profile.jpg">
-<h1>Thrusting Gamer</h1>
-<div class="tag">Gaming • Streaming • Creator</div>
-</header>
+    <!-- SIDE PANEL -->
+    <div class="panel">
+      <div class="card">
+        <h3>CONNECT</h3>
+        <div class="links">
+          <a href="#">Discord</a>
+          <a href="#">Twitter / X</a>
+          <a href="#">Business Email</a>
+        </div>
+      </div>
 
-<div class="section">
-<h2>🔗 Links</h2>
-<button onclick="window.open('https://instagram.com')">📸 Instagram</button>
-<button onclick="copyDC()">🎮 Copy Discord</button>
-<button onclick="window.open('https://youtube.com')">▶ YouTube</button>
+      <div class="card">
+        <h3>SETUP</h3>
+        <div class="specs">
+          CPU: Edit<br>
+          GPU: Edit<br>
+          RAM: 16GB<br>
+          Monitor: 144Hz
+        </div>
+      </div>
+
+      <footer>© 2026 Thrusting Gamer</footer>
+    </div>
+
+  </div>
 </div>
-
-<div class="section">
-<h2>💻 Specs</h2>
-<ul class="specs">
-<li>CPU: Edit</li>
-<li>GPU: Edit</li>
-<li>RAM: 16GB</li>
-<li>Monitor: 144Hz</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>🎧 Spotify – Now Playing</h2>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"></iframe>
-</div>
-
-<div class="section">
-<h2>🟢 Discord Status</h2>
-<iframe src="https://lanyard.cnrad.dev/api/your_discord_id"></iframe>
-</div>
-
-<footer>© 2026 Thrusting Gamer • Official</footer>
-
-</div></div>
-
-<script>
-let last=performance.now(),frames=0
-function fpsCounter(now){frames++;if(now-last>=1000){document.getElementById('fps').innerText='FPS: '+frames;frames=0;last=now}requestAnimationFrame(fpsCounter)}
-requestAnimationFrame(fpsCounter)
-
-function toggleMusic(){const m=document.getElementById('bgm');m.paused?m.play():m.pause()}
-function copyDC(){navigator.clipboard.writeText('thrustinggamer#0000');alert('Discord copied')}
-</script>
 
 </body>
 </html>
