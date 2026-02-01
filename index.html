@@ -1,161 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YourName | Gamer & Editor</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Name • Gamer & Editor</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #0b0f1a;
-  --card: #11162a;
-  --text: #eaeaff;
-  --accent: linear-gradient(90deg,#00f2ff,#ff00f7,#00ff85);
+:root{
+  --bg:#0e0f14;
+  --card:rgba(255,255,255,0.06);
+  --text:#ffffff;
+  --sub:#b6b6c9;
+  --accent:linear-gradient(135deg,#7f5cff,#00e5ff);
+}
+.light{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#0e0f14;
+  --sub:#555;
+  --accent:linear-gradient(135deg,#7f5cff,#00b3ff);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-body {
-  font-family: 'Orbitron', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+body{
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
 }
 
 /* NAV */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10,10,20,.8);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 15px;
-  z-index: 100;
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 8%;
+  z-index:10;
+  backdrop-filter:blur(14px);
 }
-nav a {
-  color: white;
-  text-decoration: none;
-  position: relative;
+nav a{
+  color:var(--sub);
+  margin-right:20px;
+  text-decoration:none;
+  font-weight:500;
 }
-nav a::after {
-  content:'';
-  position:absolute;
-  left:0; bottom:-5px;
-  width:0; height:2px;
-  background: var(--accent);
-  transition:.3s;
+nav a:hover{color:var(--text)}
+.nav-btn{
+  background:var(--accent);
+  border:none;
+  color:white;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
 }
-nav a:hover::after { width:100%; }
 
 /* SECTIONS */
-section {
-  min-height: 100vh;
-  padding: 120px 10%;
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  from { opacity:0; transform: translateY(40px); }
-  to { opacity:1; transform: translateY(0); }
+section{
+  min-height:100vh;
+  padding:120px 8%;
 }
 
 /* HERO */
-.hero {
-  display: grid;
-  place-items: center;
-  text-align: center;
+.hero{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
-.hero img {
-  width: 140px;
-  border-radius: 50%;
-  padding: 5px;
-  background: var(--accent);
-  animation: spin 8s linear infinite;
+.hero img{
+  width:120px;
+  border-radius:50%;
+  margin-bottom:20px;
 }
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.hero h1{
+  font-size:3.2rem;
+  line-height:1.1;
 }
-.hero h1 {
-  font-size: 2.5rem;
-  margin-top: 20px;
+.hero h1 span{
+  background:var(--accent);
+  -webkit-background-clip:text;
+  color:transparent;
 }
-.hero p {
-  opacity: .8;
+.hero p{
+  max-width:420px;
+  margin-top:18px;
+  color:var(--sub);
+  font-size:1.05rem;
+}
+
+/* BUTTONS */
+.actions{
+  margin-top:30px;
+}
+.actions a{
+  display:inline-block;
+  margin-right:15px;
+  padding:12px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  background:var(--accent);
 }
 
 /* CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 25px;
-  margin-top: 40px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+  margin-top:40px;
 }
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 18px;
-  position: relative;
-  overflow: hidden;
+.card{
+  background:var(--card);
+  border-radius:22px;
+  padding:28px;
+  backdrop-filter:blur(10px);
+  transition:.4s;
 }
-.card::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:18px;
-  padding:2px;
-  background: var(--accent);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-.card:hover {
-  transform: translateY(-8px);
-  transition: .3s;
+.card:hover{
+  transform:translateY(-6px);
 }
 
-/* PROGRESS */
-.bar {
-  height: 10px;
-  background: #222;
-  border-radius: 20px;
-  overflow: hidden;
+/* SKILLS */
+.skill{
+  margin-top:15px;
 }
-.bar span {
-  display: block;
-  height: 100%;
-  background: var(--accent);
+.bar{
+  height:6px;
+  background:rgba(255,255,255,.15);
+  border-radius:10px;
+  overflow:hidden;
 }
-
-/* MUSIC BUTTON */
-.music-btn {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: var(--accent);
-  border: none;
-  padding: 14px 18px;
-  border-radius: 50%;
-  cursor: pointer;
+.bar span{
+  display:block;
+  height:100%;
+  background:var(--accent);
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 25px;
-  opacity: .6;
+footer{
+  text-align:center;
+  padding:40px 0;
+  color:var(--sub);
 }
 
+/* MOBILE */
 @media(max-width:768px){
-  section { padding: 100px 6%; }
-  .hero h1 { font-size: 2rem; }
+  .hero h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -163,18 +159,30 @@ footer {
 <body>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#gaming">Gaming</a>
-  <a href="#editing">Editing</a>
-  <a href="#links">Links</a>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#work">What I Do</a>
+    <a href="#links">Links</a>
+  </div>
+  <div>
+    <button class="nav-btn" onclick="toggleMode()">🌗</button>
+    <button class="nav-btn" onclick="toggleMusic()">🎵</button>
+  </div>
 </nav>
 
 <!-- HOME -->
 <section id="home" class="hero">
-  <img src="logo.png">
-  <h1>Your Name</h1>
-  <p>Gamer • Video Editor • Content Creator</p>
+  <img src="logo.png" alt="logo">
+  <h1>Hi, I’m <span>Your Name</span></h1>
+  <p>
+    Gamer, video editor and creator focused on clean visuals,
+    smooth gameplay and modern aesthetics.
+  </p>
+  <div class="actions">
+    <a href="#links">My Links</a>
+    <a href="#work">My Skills</a>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -182,71 +190,69 @@ footer {
   <h2>About Me</h2>
   <div class="grid">
     <div class="card">
-      <p>I’m a competitive gamer and cinematic editor who loves clean visuals, smooth motion and high FPS vibes.</p>
+      I’m passionate about gaming and storytelling through edits.
+      I like minimal, premium visuals over flashy effects.
+    </div>
+    <div class="card">
+      PC gamer, content-focused editor, and someone who enjoys
+      building clean digital identities.
     </div>
   </div>
 </section>
 
-<!-- GAMING -->
-<section id="gaming">
-  <h2>Gaming Info</h2>
-  <div class="grid">
-    <div class="card">🎮 Main Games<br>FPS / Open World</div>
-    <div class="card">⚡ Playstyle<br>Aggressive + Smart</div>
-    <div class="card">🖥️ Setup<br>PC + OBS</div>
-  </div>
-</section>
-
-<!-- EDITING -->
-<section id="editing">
-  <h2>Editing Skills</h2>
+<!-- WORK -->
+<section id="work">
+  <h2>What I Do</h2>
   <div class="grid">
     <div class="card">
-      Premiere Pro
-      <div class="bar"><span style="width:90%"></span></div>
+      🎮 Gaming
+      <div class="skill">
+        <div class="bar"><span style="width:85%"></span></div>
+      </div>
     </div>
     <div class="card">
-      After Effects
-      <div class="bar"><span style="width:80%"></span></div>
+      🎬 Video Editing
+      <div class="skill">
+        <div class="bar"><span style="width:90%"></span></div>
+      </div>
+    </div>
+    <div class="card">
+      🎨 Visual Design
+      <div class="skill">
+        <div class="bar"><span style="width:75%"></span></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- LINKS -->
 <section id="links">
-  <h2>Connect</h2>
+  <h2>Find Me Online</h2>
   <div class="grid">
-    <div class="card">📷 Instagram</div>
+    <div class="card">📸 Instagram</div>
     <div class="card">🎥 YouTube</div>
-    <div class="card" onclick="copyDC()">💬 Discord (Click to copy)</div>
+    <div class="card">💬 Discord</div>
+    <div class="card">🌐 Portfolio</div>
   </div>
 </section>
 
 <footer>
-  © 2026 YourName — Built for Gaming
+  © Your Name • Clean • Modern • Personal
 </footer>
 
-<!-- MUSIC -->
-<audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<audio id="bgm" src="music.mp3" loop></audio>
 
 <script>
-const music = document.getElementById("bgm");
-let playing = false;
-
+let playing=false;
 function toggleMusic(){
-  playing ? music.pause() : music.play();
-  playing = !playing;
+  const m=document.getElementById("bgm");
+  playing?m.pause():m.play();
+  playing=!playing;
 }
-
-function copyDC(){
-  navigator.clipboard.writeText("YourDiscord#0000");
-  alert("Discord ID copied!");
+function toggleMode(){
+  document.body.classList.toggle("light");
 }
 </script>
 
 </body>
 </html>
-
