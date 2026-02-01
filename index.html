@@ -142,6 +142,13 @@
     </div>
 
     <footer>© ThrustingGamer</footer>
+
+    <!-- Background Music Toggle -->
+    <button id="musicBtn" style="margin-top:30px;padding:10px 18px;border-radius:12px;border:none;background:rgba(255,255,255,0.08);color:#fff;cursor:pointer">🎵 Play Music</button>
+
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
 <script>
@@ -159,7 +166,24 @@ fetch(`https://api.lanyard.rest/v1/users/${discordId}`)
     }
   })
   .catch(()=>{});
+
+// ===== Background Music Toggle =====
+const music = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
+let playing = false;
+btn.onclick = () => {
+  if(!playing){
+    music.volume = 0.25;
+    music.play();
+    btn.innerText = '⏸ Pause Music';
+  } else {
+    music.pause();
+    btn.innerText = '🎵 Play Music';
+  }
+  playing = !playing;
+}
 </script>
 
 </body>
 </html>
+
