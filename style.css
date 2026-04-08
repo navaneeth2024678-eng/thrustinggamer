@@ -3,6 +3,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     background: #050505;
     color: white;
+    scroll-behavior: smooth;
 }
 
 /* NAVBAR */
@@ -19,6 +20,7 @@ body {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .logo img {
@@ -27,30 +29,60 @@ body {
 
 /* NAV LINKS */
 .nav-links {
-    list-style: none;
     display: flex;
     gap: 25px;
     margin-left: 40px;
 }
 
 .nav-links li {
-    cursor: pointer;
-    opacity: 0.8;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.7;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* HOVER */
+.nav-links a:hover {
+    color: #ff1a1a;
+    opacity: 1;
+}
+
+/* ACTIVE */
+.nav-links li.active a {
+    color: #ff1a1a;
+    opacity: 1;
+}
+
+/* UNDERLINE */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: red;
     transition: 0.3s;
 }
 
-.nav-links li:hover {
-    color: #ff1a1a;
+.nav-links a:hover::after,
+.nav-links li.active a::after {
+    width: 100%;
 }
 
-/* BUTTON CONTAINER (RIGHT SIDE) */
+/* BUTTONS RIGHT */
 .nav-buttons {
     display: flex;
     gap: 15px;
     margin-left: auto;
 }
 
-/* CONNECT CITY BUTTON (AESTHETIC) */
+/* CONNECT BUTTON */
 .join-btn {
     padding: 12px 28px;
     border-radius: 30px;
@@ -70,10 +102,9 @@ body {
     box-shadow: 0 0 35px rgba(255,0,0,0.9);
 }
 
-/* BIG DISCORD BUTTON */
+/* DISCORD BUTTON */
 .discord-btn {
     padding: 14px 35px;
-    font-size: 15px;
     border-radius: 30px;
     background: linear-gradient(135deg, #5865F2, #7289DA);
     text-decoration: none;
@@ -133,4 +164,10 @@ body {
 
 .secondary:hover {
     background: rgba(255,255,255,0.2);
+}
+
+/* SECTIONS */
+.section {
+    height: 100vh;
+    padding: 100px 50px;
 }
