@@ -17,20 +17,20 @@
         </div>
 
         <ul class="nav-links">
-            <li>Home</li>
-            <li>Rules</li>
-            <li>Server</li>
-            <li>Discord</li>
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#rules">Rules</a></li>
+            <li><a href="#server">Server</a></li>
+            <li><a href="#discord">Discord</a></li>
         </ul>
 
         <div class="nav-buttons">
             <a href="https://cfx.re/join/3mqklz" target="_blank" class="join-btn">CONNECT CITY</a>
-            <a href="https://discord.gg/YOURDISCORD" target="_blank" class="discord-btn big-dc">JOIN DISCORD</a>
+            <a href="https://discord.gg/YOURDISCORD" target="_blank" class="discord-btn">JOIN DISCORD</a>
         </div>
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="home">
         <h1><span>STORM</span> ARENA</h1>
         <p>Ultimate PVP Experience</p>
 
@@ -39,6 +39,50 @@
             <a href="https://discord.gg/YOURDISCORD" target="_blank" class="secondary">Join Discord</a>
         </div>
     </section>
+
+    <!-- RULES -->
+    <section id="rules" class="section">
+        <h2>Rules</h2>
+        <p>No cheating. Respect players. Play fair.</p>
+    </section>
+
+    <!-- SERVER -->
+    <section id="server" class="section">
+        <h2>Server Info</h2>
+        <p>High performance PVP server with custom features.</p>
+    </section>
+
+    <!-- DISCORD -->
+    <section id="discord" class="section">
+        <h2>Join Our Discord</h2>
+        <p>Stay updated with events and announcements.</p>
+    </section>
+
+    <!-- SCRIPT FOR ACTIVE NAV -->
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links li");
+
+        window.onscroll = () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(li => {
+                li.classList.remove("active");
+                if (li.querySelector("a").getAttribute("href") === "#" + current) {
+                    li.classList.add("active");
+                }
+            });
+        };
+    </script>
 
 </body>
 </html>
