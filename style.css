@@ -1,12 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background: radial-gradient(circle at top, #120000, #050505);
-    font-family: 'Inter', sans-serif;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #050505;
     color: white;
     scroll-behavior: smooth;
 }
@@ -18,24 +13,25 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    padding: 15px 30px;
     display: flex;
     align-items: center;
-    backdrop-filter: blur(15px);
-    background: rgba(20, 0, 0, 0.6);
-    border: 1px solid rgba(255, 0, 0, 0.15);
-    border-radius: 20px;
+    padding: 12px 25px;
+    background: rgba(20, 20, 20, 0.6);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .logo img {
-    height: 45px;
+    height: 40px;
 }
 
 /* NAV LINKS */
 .nav-links {
     display: flex;
-    gap: 30px;
-    margin-left: 50px;
+    gap: 25px;
+    margin-left: 40px;
 }
 
 .nav-links li {
@@ -44,92 +40,134 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #aaa;
-    font-weight: 500;
+    color: white;
+    opacity: 0.7;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* HOVER */
+.nav-links a:hover {
+    color: #ff1a1a;
+    opacity: 1;
+}
+
+/* ACTIVE */
+.nav-links li.active a {
+    color: #ff1a1a;
+    opacity: 1;
+}
+
+/* UNDERLINE */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: red;
     transition: 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links .active a {
-    color: #ff2a2a;
+.nav-links a:hover::after,
+.nav-links li.active a::after {
+    width: 100%;
 }
 
-/* BUTTONS */
+/* BUTTONS RIGHT */
 .nav-buttons {
-    margin-left: auto;
     display: flex;
     gap: 15px;
-}
-
-.btn {
-    padding: 10px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+    margin-left: auto;
 }
 
 /* CONNECT BUTTON */
-.connect {
-    background: linear-gradient(135deg, #ff0000, #ff3c3c);
+.join-btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff0000, #ff4d4d, #ff1a1a);
+    background-size: 200% 200%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
     box-shadow: 0 0 20px rgba(255,0,0,0.5);
+    transition: 0.4s;
 }
 
-.connect:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 35px red;
+.join-btn:hover {
+    background-position: right;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
 }
 
 /* DISCORD BUTTON */
-.discord {
+.discord-btn {
+    padding: 14px 35px;
+    border-radius: 30px;
     background: linear-gradient(135deg, #5865F2, #7289DA);
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(88,101,242,0.6);
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(88,101,242,1);
 }
 
 /* HERO */
 .hero {
     height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-}
-
-.hero-content {
-    text-align: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(255,0,0,0.2), #050505);
 }
 
 .hero h1 {
-    font-size: 90px;
-    font-family: 'Orbitron', sans-serif;
+    font-size: 80px;
 }
 
 .hero h1 span {
-    color: #ff2a2a;
-    text-shadow: 0 0 25px red;
+    color: #ff1a1a;
 }
 
 .hero p {
-    margin-top: 10px;
-    color: #bbb;
+    opacity: 0.7;
 }
 
 /* HERO BUTTONS */
 .hero-buttons {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
     gap: 20px;
 }
 
-.big {
-    padding: 15px 40px;
+.join-btn.big {
+    padding: 16px 45px;
+    font-size: 16px;
 }
 
 .secondary {
-    background: rgba(255,255,255,0.08);
+    padding: 16px 45px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.secondary:hover {
+    background: rgba(255,255,255,0.2);
 }
 
 /* SECTIONS */
 .section {
-    padding: 120px 60px;
-    text-align: center;
+    height: 100vh;
+    padding: 100px 50px;
 }
