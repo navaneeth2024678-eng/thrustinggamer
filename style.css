@@ -1,0 +1,88 @@
+body {
+  margin:0;
+  font-family: Arial;
+  background:#0a0a0a;
+  color:white;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+}
+
+.logo {
+  color:#ff2e2e;
+}
+
+nav a {
+  margin:0 15px;
+  text-decoration:none;
+  color:white;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:150px 20px;
+  background: radial-gradient(circle, #1a0000, #000);
+}
+
+.hero h1 {
+  font-size:60px;
+  color:#ff2e2e;
+}
+
+.btn {
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+.main {
+  background:#ff2e2e;
+  color:white;
+}
+
+.outline {
+  border:2px solid #ff2e2e;
+  color:#ff2e2e;
+}
+
+/* FEATURES */
+.features {
+  padding:80px;
+  text-align:center;
+}
+
+.cards {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.card {
+  background:#111;
+  padding:30px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover {
+  background:#ff2e2e;
+}
+
+/* STATS */
+.stats {
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  padding:60px;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:80px;
+  background:#1a0000;
+}
