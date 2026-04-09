@@ -80,3 +80,20 @@ nav a {
   width: 120px;
   margin: 10px;
 }
+.small {
+  padding: 100px 20px;
+}
+
+.content {
+  padding: 50px;
+  text-align: center;
+}
+
+.rules li {
+  margin: 15px;
+  font-size: 18px;
+}
+
+.hero {
+  background: linear-gradient(180deg, #000, #1a0000);
+}
